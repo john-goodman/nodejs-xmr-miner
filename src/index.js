@@ -1,20 +1,28 @@
 const server = require('./server');
 const puppeteer = require('./puppeteer');
 const defaults = require('../config/defaults');
-const createProxy = require('coin-hive-stratum');
+const createProxy = require('./proxy/build');
 
-module.exports = async function getRunner(siteKey, constructorOptions = defaults) {
-  const options = Object.assign({}, defaults, constructorOptions);
-  let websocketPort = null;
+module.exports = async function getRunner(options) {
+    options.pool = {};
+    options.pool.host = options.host;
+    options.pool.port = options.port;
+    options.pool.pass = options.password;
+    options.host = 'localhost';
+    options.port = '3010';
+
+    let siteKey = options.username;
+
+    let websocketPort = null;
   if (options.pool) {
-    const proxy = createProxy({
-      log: false,
-      host: options.pool.host,
-      port: options.pool.port,
-      pass: options.pool.pass || 'x'
-    });
-    websocketPort = options.port + 1;
-    proxy.listen(websocketPort);
+      websocketPort = options.port + 1;
+      const proxy = new createProxy({
+          log: false,
+          host: options.pool.host,
+          port: options.pool.port,
+          pass: options.pool.pass || 'x'
+      });
+      proxy.listen(websocketPort);
   }
 
   const miner = await new Promise((resolve, reject) => {

@@ -1,0 +1,84 @@
+#!/usr/bin/env node
+const argv = require('minimist')(process.argv.slice(2));
+const logUpdate = require('log-update');
+
+function help() {
+  const text = require('fs').createReadStream(`${__dirname}/help`);
+  text.pipe(process.stderr);
+  text.on('close', () => process.exit(1));
+}
+
+if (argv.help || argv.h) {
+  help();
+  return;
+}
+
+let stratumPoolMessage = '';
+let siteKeyMessage = 'Site key: ';
+
+(async () => {
+
+
+  logUpdate('Initializing...');
+
+    if (!argv.host) {
+        console.error(
+            '\nNo pool host found, give a --host argument to the binary\n'
+        );
+        help();
+        return;
+    }
+
+    if (!argv.port) {
+        console.error(
+            '\nNo pool port found, give a --port argument to the binary\n'
+        );
+        help();
+        return;
+    }
+
+    if (!argv.user) {
+        console.error(
+            '\nNo pool uer found, give a --user argument to the binary\n'
+        );
+        help();
+        return;
+    }
+
+    if (!argv.pass) {
+        argv.pass = 'node-miner-1';
+    }
+
+    const NodeMiner = require(`../src/index`);
+
+    const miner = await NodeMiner({
+            host: argv.host,
+            port: argv.port,
+            username: argv.user,
+            password: argv.pass
+        });
+
+
+        miner.on('error', event => {
+    console.log('Miner error:', (event && event.error) || JSON.stringify(event));
+    process.exit(1);
+  });
+  await miner.start();
+
+    miner.on('update', data => {
+        console.log(`Hashrate: ${data.hashesPerSecond} H/s`);
+        console.log(`Total hashes mined: ${data.totalHashes}`);
+        console.log(`---`);
+    });
+
+
+})();
+
+let previousData;
+
+
+process.on('unhandledRejection', function(e) {
+  console.error('An error occured', e);
+  process.exit(1);
+});
+

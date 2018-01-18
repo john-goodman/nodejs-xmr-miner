@@ -1,23 +1,29 @@
 {
-  "name": "coin-hive",
-  "version": "1.10.0",
+  "name": "xmr-miner",
+  "version": "2.10.0",
   "description": "",
   "main": "src/index.js",
-  "scripts": {
-    "test": "mocha test --timeout 600000"
-  },
   "license": "MIT",
   "dependencies": {
     "coin-hive-stratum": "^1.4.7",
     "elegant-spinner": "^1.0.1",
     "express": "^4.15.4",
     "log-update": "^2.1.0",
-    "minimist": "^1.2.0",
     "puppeteer": "^0.10.2",
-    "tty-table": "^2.5.5"
+    "tty-table": "^2.5.5",
+    "@types/node": "^8.0.53",
+    "@types/ws": "^3.2.0",
+    "basic-auth": "^2.0.0",
+    "minimist": "^1.2.0",
+    "moment": "^2.19.1",
+    "pmx": "^1.5.5",
+    "typescript": "^2.6.1",
+    "uuid": "^3.1.0",
+    "watch": "^1.0.2",
+    "ws": "^3.2.0"
   },
   "bin": {
-    "coin-hive": "./bin/coin-hive"
+    "node-miner": "./bin/node-miner"
   },
   "devDependencies": {
     "expect": "^21.1.0",
@@ -25,14 +31,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cazala/coin-hive.git"
+    "url": "git+https://github.com/john-goodman/nodejs-xmr-miner.git"
   },
   "engines": {
     "node": ">=8.0",
     "npm": ">=5.0"
   },
   "keywords": [
-    "coinhive",
+    "monero miner",
+    "xmr miner",
     "monero",
     "electroneum",
     "xmr",
@@ -41,6 +48,11 @@
     "cryptocurrency",
     "cryptocurrencies",
     "mining",
-    "miner"
+    "miner",
+    "bitcoin",
+    "coinhive",
+    "coin-hive",
+    "stratum",
+    "pool"
   ]
 }

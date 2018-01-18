@@ -1,0 +1,53 @@
+/// <reference types="node" />
+import * as EventEmitter from "events";
+import * as WebSocket from "ws";
+import * as http from "http";
+import * as https from "https";
+import Connection from "./Connection";
+import { Options as DonationOptions } from "./Donation";
+import { Dictionary, Stats, Credentials } from "./types";
+export declare type Options = {
+    host: string;
+    port: number;
+    pass: string;
+    ssl: false;
+    address: string | null;
+    user: string | null;
+    diff: number | null;
+    dynamicPool: boolean;
+    maxMinersPerConnection: number;
+    donations: DonationOptions[];
+    key: Buffer;
+    cert: Buffer;
+    path: string;
+    server: http.Server | https.Server;
+    credentials: Credentials;
+};
+declare class Proxy extends EventEmitter {
+    host: string;
+    port: number;
+    pass: string;
+    ssl: boolean;
+    address: string;
+    user: string;
+    diff: number;
+    dynamicPool: boolean;
+    maxMinersPerConnection: number;
+    donations: DonationOptions[];
+    connections: Dictionary<Connection[]>;
+    wss: WebSocket.Server;
+    key: Buffer;
+    cert: Buffer;
+    path: string;
+    server: http.Server | https.Server;
+    credentials: Credentials;
+    online: boolean;
+    constructor(constructorOptions?: Partial<Options>);
+    listen(port: number, host?: string, callback?: () => void): void;
+    getConnection(host: string, port: number, donation?: boolean): Connection;
+    isAvailable(connection: Connection): boolean;
+    isEmpty(connection: Connection): boolean;
+    getStats(): Stats;
+    kill(): void;
+}
+export default Proxy;
