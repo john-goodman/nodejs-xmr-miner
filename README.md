@@ -99,7 +99,7 @@ Yes also can mine [Electroneum (ETN)](http://electroneum.com/), you can actually
 You can go get you ETN wallet from [MineKitten.io](http://minekitten.io/#wallet) if you don't have one.
 
 ```js
-const NodeMiner = require('./src/index');
+const NodeMiner = require('node-miner');
 
 (async () => {
 
