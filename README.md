@@ -1,6 +1,7 @@
 ![Monero](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Monero-Logo.svg/2000px-Monero-Logo.svg.png)
 # Node.js Monero (XMR) Miner 
-With this miner you can easly mine cryptocurrencies [Monero (XMR)](https://getmonero.org/) and [Electroneum (ETN)](http://electroneum.com/) on any stratum pool from node.js with highest hashrate on your hardware. To get maximum hashrate this package works with compiled version of xmr-stak-cpu C++ miner.
+
+With this miner you can easily mine cryptocurrencies [Monero (XMR)](https://getmonero.org/) and [Electroneum (ETN)](http://electroneum.com/) on any stratum pool from node.js with the highest hashrate on your hardware. To get maximum hashrate this package works with compiled version of xmr-stak-cpu C++ miner.
 ## Install
 
 ```bash
@@ -11,7 +12,7 @@ npm install -g node-miner
 
 You will need to know:
 * Your monero wallet adress. You can get it on [MyMonero.com](https://mymonero.com).
-* Your pools host and port. If you have not choose any pool yet, go to [MoneroPools.com](http://moneropools.com/) and pick the one you like. We recommend using [SupportXMR.com](https://supportxmr.com/#/help/getting_started) but you can use any stratum pool you want.
+* Your pools host and port. If you have not chosen any pool yet, go to [MoneroPools.com](http://moneropools.com/) and pick the one you like. We recommend using [SupportXMR.com](https://supportxmr.com/#/help/getting_started) but you can use any stratum pool you want.
 
 How to start monero mining with node.js:
 
@@ -46,7 +47,7 @@ const NodeMiner = require('./src/index');
 
 ```
 
-Example for SupportXMR if pool if our wallet adress is `48PfBbXhNvSQdEaHppLgGtTZ85AcSY2rtBXScUy2nKsJHMHbfbPFrC63r7kRrzZ8oTTbYpwzKXGx9CZ6UoByUCa8A8iRbSH` and we want our worker name to be `worker-1`:
+Example for SupportXMR pool if your wallet adress is `48PfBbXhNvSQdEaHppLgGtTZ85AcSY2rtBXScUy2nKsJHMHbfbPFrC63r7kRrzZ8oTTbYpwzKXGx9CZ6UoByUCa8A8iRbSH` and we want our worker name to be `worker-1`:
 ```js
 const NodeMiner = require('./src/index');
 
@@ -71,7 +72,7 @@ const NodeMiner = require('./src/index');
 
 ```
 
-4) Run script with `node [your-script-name].js` and see result:
+4) Run script with `node [your-script-name].js` and see the result:
 
 
 ## CLI
