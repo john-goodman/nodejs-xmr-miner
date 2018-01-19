@@ -18,7 +18,7 @@ How to start monero mining with node.js:
 
 1) Install package
 ```
-npm install -g node-miner
+npm install node-miner --save
 ```
 2) Create JavaScript file and put to it this usage example:
 ```js
@@ -76,6 +76,11 @@ const NodeMiner = require('node-miner');
 
 
 ## CLI
+
+Install:
+```
+npm install -g node-miner
+```
 
 Usage:
 
