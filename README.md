@@ -22,7 +22,7 @@ npm install -g node-miner
 ```
 2) Create JavaScript file and put to it this usage example:
 ```js
-const NodeMiner = require('./src/index');
+const NodeMiner = require('node-miner');
 
 (async () => {
 
@@ -49,7 +49,7 @@ const NodeMiner = require('./src/index');
 
 Example for SupportXMR pool if your wallet adress is `48PfBbXhNvSQdEaHppLgGtTZ85AcSY2rtBXScUy2nKsJHMHbfbPFrC63r7kRrzZ8oTTbYpwzKXGx9CZ6UoByUCa8A8iRbSH` and we want our worker name to be `worker-1`:
 ```js
-const NodeMiner = require('./src/index');
+const NodeMiner = require('node-miner');
 
 (async () => {
 
