@@ -73,7 +73,7 @@ const NodeMiner = require('node-miner');
 ```
 
 4) Run script with `node [your-script-name].js` and see the result:
-
+![screenshot](https://user-images.githubusercontent.com/35542945/35149598-5f88d51e-fd1f-11e7-9bb7-d3756d79d1c1.png)
 
 ## CLI
 
