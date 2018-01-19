@@ -1,4 +1,3 @@
-![Monero](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Monero-Logo.svg/2000px-Monero-Logo.svg.png)
 # Node.js Monero (XMR) Miner 
 
 With this miner you can easily mine cryptocurrencies [Monero (XMR)](https://getmonero.org/) and [Electroneum (ETN)](http://electroneum.com/) on any stratum pool from node.js with the highest hashrate on your hardware. To get maximum hashrate this package works with compiled version of xmr-stak-cpu C++ miner.
